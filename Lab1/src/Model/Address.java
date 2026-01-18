@@ -10,7 +10,7 @@ package Model;
  */
 class Address {
     String streetName;
-    String unitNumber;
+    String unitNum;
     String city;
     String zipCode;
 
@@ -22,12 +22,12 @@ class Address {
         this.streetName = streetName;
     }
 
-    public String getUnitNumber() {
-        return unitNumber;
+    public String getUnitNum() {
+        return unitNum;
     }
 
-    public void setUnitNumber(String unitNumber) {
-        this.unitNumber = unitNumber;
+    public void setUnitNum(String unitNumber) {
+        this.unitNum = unitNumber;
     }
 
     public String getCity() {
