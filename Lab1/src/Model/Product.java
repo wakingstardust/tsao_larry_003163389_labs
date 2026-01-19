@@ -15,6 +15,12 @@ public class Product {
     String price;
     Address manufactureAddress;
     Address shippingAddress;
+    
+    public Product(){
+        manufactureAddress = new Address();
+        shippingAddress = new Address();
+    }
+    
 
     public String getName() {
         return name;

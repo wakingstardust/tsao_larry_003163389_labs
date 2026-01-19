@@ -8,11 +8,15 @@ package Model;
  *
  * @author wakingstardust
  */
-class Address {
+public class Address {
     String streetName;
     String unitNum;
     String city;
     String zipCode;
+    
+    public Address(){
+        
+    }
 
     public String getStreetName() {
         return streetName;

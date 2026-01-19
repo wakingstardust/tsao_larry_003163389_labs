@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Model.Product;
+
 /**
  *
  * @author wakingstardust
@@ -13,8 +15,10 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    Product product;
     public MainJFrame() {
         initComponents();
+        product = new Product();
     }
 
     /**
@@ -37,8 +41,18 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanel.setBackground(new java.awt.Color(204, 255, 255));
 
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
@@ -80,6 +94,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        //Step 1: Instantitate the CreateJPanel
+        CreateJPanel createJPanel = new CreateJPanel(product);
+        //Step 2: Switch
+        splitPane.setRightComponent(createJPanel);
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        //step 1 instangate the viewjpanel
+        ViewJPanel viewJPanel = new ViewJPanel(product);
+        splitPane.setRightComponent(viewJPanel);
+    }//GEN-LAST:event_btnViewActionPerformed
 
     /**
      * @param args the command line arguments

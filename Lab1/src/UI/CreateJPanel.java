@@ -4,6 +4,9 @@
  */
 package UI;
 
+import Model.Product;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author wakingstardust
@@ -13,8 +16,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    Product product; 
+    public CreateJPanel(Product p) {
         initComponents();
+        product = p;
     }
 
     /**
@@ -53,6 +58,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         fieldShippingCity = new javax.swing.JTextField();
         lblShippingZipCode = new javax.swing.JLabel();
         fieldShippingZipCode = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
 
@@ -120,6 +126,13 @@ public class CreateJPanel extends javax.swing.JPanel {
         fieldShippingZipCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldShippingZipCodeActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -192,7 +205,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblShippingAddress)
-                                    .addComponent(fieldShippingStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(fieldShippingStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(btnSave)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -205,7 +221,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDescription)
                     .addComponent(fieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -254,7 +270,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldShippingZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblShippingZipCode))))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(btnSave)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -282,8 +300,65 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldShippingZipCodeActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        
+        // Step 1: collect text from the field
+        String name = fieldName.getText();
+        String description = fieldDescription.getText();
+        String avail = fieldAvailability.getText();
+        String price = fieldPrice.getText();
+        
+        String manuStreet = fieldManuStreet.getText();
+        String manuUnit = fieldManuUnit.getText();
+        String manuCity = fieldManuCity.getText();
+        String manuZipCode = fieldManuZipCode.getText();
+
+        String shippingStreet = fieldShippingStreet.getText();
+        String shippingUnit = fieldShippingUnit.getText();
+        String shippingCity = fieldShippingCity.getText();
+        String shippingZipCode = fieldShippingZipCode.getText();
+
+        // Step 2: put those infomation to product
+        product.setName(name);
+        product.setDescription(description);
+        product.setAvailNum(avail);
+        product.setPrice(price);
+        
+        product.getManufactureAddress().setStreetName(manuStreet);
+        product.getManufactureAddress().setUnitNum(manuUnit);
+        product.getManufactureAddress().setCity(manuCity);
+        product.getManufactureAddress().setZipCode(manuZipCode);
+        
+        product.getShippingAddress().setStreetName(shippingStreet);
+        product.getShippingAddress().setUnitNum(shippingUnit);
+        product.getShippingAddress().setCity(shippingCity);
+        product.getShippingAddress().setZipCode(shippingZipCode);
+        
+        //Step 3: pop up message appears
+        JOptionPane.showMessageDialog(this, "Sucessfully Saved!");
+        
+        //Step 4: clear all fields
+        fieldName.setText("");
+        fieldDescription.setText("");
+        fieldAvailability.setText("");
+        fieldPrice.setText("");
+        fieldManuStreet.setText("'");
+        fieldManuUnit.setText("");
+        fieldManuCity.setText("");
+        fieldManuZipCode.setText("");
+        fieldShippingStreet.setText("");
+        fieldShippingUnit.setText("");
+        fieldShippingCity.setText("");
+        fieldShippingZipCode.setText("");
+
+               
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
     private javax.swing.JTextField fieldAvailability;
     private javax.swing.JTextField fieldDescription;
     private javax.swing.JTextField fieldManuCity;
