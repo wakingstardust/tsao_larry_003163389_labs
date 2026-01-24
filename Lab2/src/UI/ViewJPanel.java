@@ -4,7 +4,9 @@
  */
 package UI;
 
+import Model.VitalSigns;
 import Model.VitalSignsHistory;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +22,11 @@ public class ViewJPanel extends javax.swing.JPanel {
     public ViewJPanel(VitalSignsHistory vitalSignsHistory) {
         initComponents();
         this.vitalSignsHistory = vitalSignsHistory;
+        
+        populateTable();
+        
+       
+               
     }
 
     /**
@@ -42,7 +49,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblVitals = new javax.swing.JTable();
         lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -92,7 +99,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVitals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -108,7 +115,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblVitals);
 
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblTitle.setText("View Vital Signs");
@@ -200,15 +207,33 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPulse;
     private javax.swing.JLabel lblTemperature;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblVitals;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtPulse;
     private javax.swing.JTextField txtTemperature;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) tblVitals.getModel();
+        model.setRowCount(0);
+        
+        for (VitalSigns vs : vitalSignsHistory.getHistory()) {
+        
+            Object[] row = new Object[4];
+            row[0] = vs.getDate();
+            row[1] = vs.getTemperature();
+            row[2] = vs.getBloodPressure();
+            row[3] = vs.getPulse();
+            
+            model.addRow(row);
+            
+        }
+    }
 }
