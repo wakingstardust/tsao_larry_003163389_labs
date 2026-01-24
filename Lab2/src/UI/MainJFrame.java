@@ -75,7 +75,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreateVitals)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewVitals)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(controlPanel);
@@ -84,11 +84,11 @@ public class MainJFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 493, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(workArea);
@@ -108,8 +108,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewVitalsActionPerformed
         // TODO add your handling code here:
-        //step 1 instangate the viewjpanel
-        ViewJPanel viewJPanel = new ViewJPanel(product);
+        ViewJPanel viewJPanel = new ViewJPanel(vitalSignsHistory);
+        //Step 2: Switch
         splitPane.setRightComponent(viewJPanel);
     }//GEN-LAST:event_btnViewVitalsActionPerformed
 

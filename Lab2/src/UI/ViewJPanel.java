@@ -4,24 +4,22 @@
  */
 package UI;
 
-import javax.swing.JOptionPane;
 import Model.VitalSignsHistory;
-import Model.VitalSigns;
 
 /**
  *
  * @author wakingstardust
  */
-public class CreateJPanel extends javax.swing.JPanel {
+public class ViewJPanel extends javax.swing.JPanel {
 
     VitalSignsHistory vitalSignsHistory;
     
-    
-    public CreateJPanel(VitalSignsHistory vitalSignsHistory){
+    /**
+     * Creates new form ViewJPanel
+     */
+    public ViewJPanel(VitalSignsHistory vitalSignsHistory) {
         initComponents();
         this.vitalSignsHistory = vitalSignsHistory;
-        
-    
     }
 
     /**
@@ -33,7 +31,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
         lblTemperature = new javax.swing.JLabel();
         txtTemperature = new javax.swing.JTextField();
         lblBloodPressure = new javax.swing.JLabel();
@@ -42,15 +39,17 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtPulse = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
         txtDate = new javax.swing.JTextField();
-        btnSave = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 204));
-
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        lblTitle.setText("Create Vital Signs");
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblTemperature.setText("Temperature");
 
+        txtTemperature.setEditable(false);
         txtTemperature.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTemperatureActionPerformed(evt);
@@ -59,6 +58,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblBloodPressure.setText("Blood Pressure");
 
+        txtBloodPressure.setEditable(false);
         txtBloodPressure.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBloodPressureActionPerformed(evt);
@@ -67,6 +67,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblPulse.setText("Pulse");
 
+        txtPulse.setEditable(false);
         txtPulse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPulseActionPerformed(evt);
@@ -75,50 +76,85 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblDate.setText("Date");
 
+        txtDate.setEditable(false);
         txtDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateActionPerformed(evt);
             }
         });
 
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setText("View");
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Temperature", "Blood Pressure", "Pulse"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTitle.setText("View Vital Signs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnView)
+                .addGap(18, 18, 18)
+                .addComponent(btnDelete)
+                .addGap(23, 23, 23))
             .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPulse)
+                    .addComponent(lblDate)
+                    .addComponent(lblBloodPressure)
+                    .addComponent(lblTemperature))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPulse)
-                            .addComponent(lblDate)
-                            .addComponent(lblBloodPressure)
-                            .addComponent(lblTemperature))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtBloodPressure)
-                                .addComponent(txtPulse)
-                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnSave)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(lblTitle)))
-                .addContainerGap(161, Short.MAX_VALUE))
+                    .addComponent(lblTitle)
+                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtBloodPressure)
+                        .addComponent(txtPulse)
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addComponent(lblTitle)
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnView)
+                    .addComponent(btnDelete))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,9 +171,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDate)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(btnSave)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -157,34 +191,16 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        Double temperature = Double.parseDouble(txtTemperature.getText());
-        Double bloodPressure = Double.parseDouble(txtBloodPressure.getText());
-        int pulse = Integer.parseInt(txtPulse.getText());
-        String date = txtDate.getText();
-        
-        VitalSigns newVs = vitalSignsHistory.addNewVitals();
-                
-        newVs.setTemperature(temperature);
-        newVs.setBloodPressure(bloodPressure);
-        newVs.setPulse(pulse);
-        newVs.setDate(date);
-        
-        //show confirmation dialog
-        JOptionPane.showMessageDialog(this, "New Vital Signs Created", "Success", JOptionPane.INFORMATION_MESSAGE);
-        
-        //clear form
-        txtTemperature.setText("");  
-        txtBloodPressure.setText("");      
-        txtPulse.setText("");  
-        txtDate.setText("");  
-        
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnView;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPulse;
