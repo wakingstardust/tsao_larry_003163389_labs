@@ -23,29 +23,37 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnView" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="250" max="-2" attributes="0"/>
+                      <Component id="btnView" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblPulse" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBloodPressure" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTemperature" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtTemperature" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtBloodPressure" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtPulse" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtDate" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="68" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblPulse" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblBloodPressure" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTemperature" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTemperature" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtBloodPressure" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtPulse" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtDate" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
+              <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
@@ -60,9 +68,9 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="280" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="237" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnView" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -87,7 +95,7 @@
                   <Component id="lblDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -149,6 +157,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>

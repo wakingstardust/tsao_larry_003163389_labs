@@ -6,6 +6,7 @@ package UI;
 
 import Model.VitalSigns;
 import Model.VitalSignsHistory;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -91,6 +92,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         });
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -126,25 +132,30 @@ public class ViewJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnView)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnView))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPulse)
+                            .addComponent(lblDate)
+                            .addComponent(lblBloodPressure)
+                            .addComponent(lblTemperature))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtBloodPressure)
+                                .addComponent(txtPulse)
+                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnDelete)
                 .addGap(23, 23, 23))
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPulse)
-                    .addComponent(lblDate)
-                    .addComponent(lblBloodPressure)
-                    .addComponent(lblTemperature))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtBloodPressure)
-                        .addComponent(txtPulse)
-                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(198, 198, 198)
+                .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -156,9 +167,9 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(lblTitle)
-                .addGap(4, 4, 4)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete))
@@ -178,7 +189,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDate)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGap(51, 51, 51))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,7 +211,53 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int selectedIndex = tblVitals.getSelectedRow();
+        
+        if (selectedIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row first","Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+             
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblVitals.getModel();
+        VitalSigns selectedVitals = (VitalSigns) model.getValueAt(selectedIndex, 0);
+        
+        //implment delete row + update table
+        if (selectedVitals != null) {
+            vitalSignsHistory.removeVitals(selectedVitals);
+            
+            JOptionPane.showMessageDialog(this, "Vital signs deleted","Success", JOptionPane.WARNING_MESSAGE);
+
+            
+        }
+        populateTable();
+        
+        
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = tblVitals.getSelectedRow();
+        
+        if (selectedIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row first","Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+             
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblVitals.getModel();
+        VitalSigns selectedVitals = (VitalSigns) model.getValueAt(selectedIndex, 0);
+        
+        if (selectedVitals != null){
+            txtTemperature.setText(Double.toString(selectedVitals.getTemperature()));
+            txtBloodPressure.setText(Double.toString(selectedVitals.getBloodPressure()));
+            txtPulse.setText(Integer.toString(selectedVitals.getPulse()));
+            txtDate.setText(selectedVitals.getDate());
+
+        }
+        
+    }//GEN-LAST:event_btnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -227,7 +284,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         for (VitalSigns vs : vitalSignsHistory.getHistory()) {
         
             Object[] row = new Object[4];
-            row[0] = vs.getDate();
+            row[0] = vs;
             row[1] = vs.getTemperature();
             row[2] = vs.getBloodPressure();
             row[3] = vs.getPulse();

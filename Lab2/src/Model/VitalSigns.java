@@ -46,6 +46,11 @@ public class VitalSigns {
     public void setPulse(int pulse) {
         this.pulse = pulse;
     }
+    
+    @Override
+    public String toString(){
+        return getDate();
+    }
 
 
 }
