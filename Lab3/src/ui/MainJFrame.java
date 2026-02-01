@@ -149,10 +149,10 @@ public class MainJFrame extends javax.swing.JFrame {
         newAccount.setBalance(200);
         
         Account anotherNewAccount = accountDirectory.addAccount();
-        newAccount.setAccountNumber("987654321");
-        newAccount.setRoutingNumber("554433221100");
-        newAccount.setBankName("Santander Bank");
-        newAccount.setBalance(1200);
+        anotherNewAccount.setAccountNumber("9876543210");
+        anotherNewAccount.setRoutingNumber("554433221100");
+        anotherNewAccount.setBankName("Santander Bank");
+        anotherNewAccount.setBalance(1200);
         
     }
 
