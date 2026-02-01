@@ -16,30 +16,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="216" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblBalance" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblBankName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblAccountNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRoutingNumber" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtRoutingNumber" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
-                          <Component id="txtBalance" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
-                          <Component id="txtBankName" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
-                          <Component id="txtAccountNumber" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="txtAccountNumber" min="-2" pref="156" max="-2" attributes="0"/>
+                  <Component id="txtRoutingNumber" min="-2" pref="156" max="-2" attributes="0"/>
+                  <Component id="txtBankName" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
+                  <Component id="txtBalance" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -48,11 +38,20 @@
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblAccountNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRoutingNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBankName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBalance" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
                       <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="290" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,33 +62,29 @@
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtBankName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblBankName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtBalance" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblBalance" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtRoutingNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="txtAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRoutingNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtRoutingNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRoutingNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtBankName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBankName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="238" max="32767" attributes="0"/>
+              <EmptySpace pref="438" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
