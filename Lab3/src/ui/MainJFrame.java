@@ -4,17 +4,25 @@
  */
 package ui;
 
+import model.Account;
+import model.AccountDirectory;
+
 /**
  *
  * @author wakingstardust
  */
 public class MainJFrame extends javax.swing.JFrame {
+    
+    private AccountDirectory accountDirectory;
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        
+        this.accountDirectory = new AccountDirectory();
+        generateDemoData();
     }
 
     /**
@@ -134,4 +142,23 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topJPanel;
     // End of variables declaration//GEN-END:variables
+
+    private void generateDemoData(){
+        
+        Account newAccount = accountDirectory.addAccount();
+        newAccount.setAccountNumber("0123456789");
+        newAccount.setRoutingNumber("001122334455");
+        newAccount.setBankName("Bank of America");
+        newAccount.setBalance(200);
+        
+        Account anotherNewAccount = accountDirectory.addAccount();
+        newAccount.setAccountNumber("987654321");
+        newAccount.setRoutingNumber("554433221100");
+        newAccount.setBankName("Santander Bank");
+        newAccount.setBalance(1200);
+        
+    }
+
+
+
 }
