@@ -47,6 +47,13 @@ public class AddSupplier extends javax.swing.JPanel {
         this.workArea = workArea;
         this.supplierDirectory = supplierDirectory;
         
+        FileFilter jpegFilter = new FileNameExtensionFilter("JPEG File", "jpg", "jpeg");
+        FileFilter pngFilter = new FileNameExtensionFilter("PNG File", "png", "png");
+
+        fileChooser.addChoosableFileFilter(jpegFilter);
+        fileChooser.addChoosableFileFilter(pngFilter);
+        fileChooser.setFileFilter(pngFilter);
+
     
     }
 
@@ -200,13 +207,32 @@ public class AddSupplier extends javax.swing.JPanel {
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        int returnVal = fileChooser.showOpenDialog (this);
         
-        
+        if (returnVal == JFileChooser. APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            URL url;
+            try {
+                url = file.toURI().toURL();
+                logoImage = new ImageIcon(url);
+                logoImage = new ImageIcon(logoImage.getImage().getScaledInstance (150, 150, Image.SCALE_SMOOTH));
+                imgLogo.setIcon(logoImage);
+                    
+            } catch (MalformedURLException ex) {
+                 Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+ 
+            }
+
+        //System.out.print (file.toPath() + "opened.") :
+        }
     }//GEN-LAST:event_btnAttachActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
         
+        logoImage = null;
+        imgLogo.setIcon(logoImage);
   
         
     }//GEN-LAST:event_btnRemoveActionPerformed
