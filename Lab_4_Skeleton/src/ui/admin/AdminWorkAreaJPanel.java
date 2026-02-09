@@ -119,7 +119,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         mainWorkArea.remove (this);
         
         Component [] componentArray = mainWorkArea.getComponents();
-        Component component = componentArray(componentArray.length - 1);
+        Component component = componentArray[componentArray.length - 1];
         LoginScreen loginPanel = (LoginScreen) component;
         loginPanel.populateSupplierCombo();
         
@@ -142,9 +142,5 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
-
-    private Component componentArray(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }
