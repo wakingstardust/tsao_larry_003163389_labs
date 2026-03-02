@@ -6,20 +6,33 @@ package ui.CustomerRole;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.OrderItem;
 
 /**
  *
  * @author Zerel
  */
 public class ViewOrderItemDetailJPanel extends javax.swing.JPanel {
+    
+    JPanel userProcessContainer;     
+    OrderItem item;
 
     
     /**
      * Creates new form ViewOrderItemDetailJPanel
      */
-    public ViewOrderItemDetailJPanel() {
+    public ViewOrderItemDetailJPanel(JPanel userProcessContainer, OrderItem item) {
         initComponents();
-        
+
+        this.userProcessContainer = userProcessContainer;
+        this.item = item;
+
+        txtProductName.setText(item.getProduct().getProdName());
+        txtProductId.setText(String.valueOf(item.getProduct().getModelNumber()));
+        txtSalesPrice.setText(String.valueOf(item.getSalesPrice()));
+        txtQuantity.setText(String.valueOf(item.getQuantity()));
+        txtTotal.setText(String.valueOf(item.getQuantity() * item.getSalesPrice()));
+
     }
 
     /**
@@ -60,22 +73,47 @@ public class ViewOrderItemDetailJPanel extends javax.swing.JPanel {
         lblProductName.setText("Product Name:");
 
         txtProductName.setEditable(false);
+        txtProductName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductNameActionPerformed(evt);
+            }
+        });
 
         lblProductId.setText("Product ID:");
 
         txtProductId.setEditable(false);
+        txtProductId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductIdActionPerformed(evt);
+            }
+        });
 
         lblPrice.setText("Sales Price:");
 
         txtSalesPrice.setEditable(false);
+        txtSalesPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalesPriceActionPerformed(evt);
+            }
+        });
 
         lblQuantity.setText("Quantity:");
 
         txtQuantity.setEditable(false);
+        txtQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantityActionPerformed(evt);
+            }
+        });
 
         lblTotal.setText("Total:");
 
         txtTotal.setEditable(false);
+        txtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -145,7 +183,32 @@ public class ViewOrderItemDetailJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+  
+    
     }//GEN-LAST:event_btnBackActionPerformed
+        
+    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalActionPerformed
+
+    private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantityActionPerformed
+
+    private void txtSalesPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalesPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesPriceActionPerformed
+
+    private void txtProductIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductIdActionPerformed
+
+    private void txtProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

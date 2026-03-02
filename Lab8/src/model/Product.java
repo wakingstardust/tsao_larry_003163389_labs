@@ -51,5 +51,13 @@ public class Product {
     public void setModelNumber(int modelNumber) {
         this.modelNumber = modelNumber;
     }
+    
+    public int getAvail() {
+        return avail;
+    }
+
+    public void setAvail(int avail) {
+        this.avail = avail;
+    }
 
 }

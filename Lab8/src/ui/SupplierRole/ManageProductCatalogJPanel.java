@@ -33,10 +33,11 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Product p : supplier.getProductCatalog().getProductcatalog()) {
-            Object row[] = new Object[3];
+            Object row[] = new Object[4];
             row[0] = p;
             row[1] = p.getModelNumber();
             row[2] = p.getPrice();
+            row[3] = p.getAvail();
             model.addRow(row);
         }
     }
@@ -64,13 +65,13 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         tblProductCatalog.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tblProductCatalog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Product Name", "Product ID", "Price"
+                "Product Name", "Product ID", "Price", "Availabity"
             }
         ));
         jScrollPane1.setViewportView(tblProductCatalog);
@@ -202,6 +203,7 @@ public class ManageProductCatalogJPanel extends javax.swing.JPanel {
         Product s = (Product) tblProductCatalog.getValueAt(selectedRowIndex, 0);
         supplier.getProductCatalog().removeProduct(s);
         refreshTable();
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
