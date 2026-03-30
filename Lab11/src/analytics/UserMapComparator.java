@@ -22,11 +22,13 @@ public class UserMapComparator implements Comparator<User> {
         
         @Override
         public int compare(User o1, User o2) {
-            
-            return Integer.compare(userPostMap.get(o1.getId()), userPostMap.get(o2.getId()));
-            
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
+            return Integer.compare(
+                    ((userPostMap.get(o1.getId()) == null) ? 0 : userPostMap.get(o1.getId())),
+                    ((userPostMap.get(o2.getId()) == null) ? 0 : userPostMap.get(o2.getId()))
+            );
+
+            //To change body of generated methods, choose Tools | Templates.
+        }
+     }
     
-     
-}
